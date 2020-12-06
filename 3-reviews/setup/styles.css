@@ -120,6 +120,9 @@ p {
   }
   body {
     font-size: 1rem;
+    display: flex;
+    flex-direction: center;
+    align-items: center;
   }
   h1,
   h2,
@@ -250,6 +253,9 @@ main {
   margin: 0 0.5rem;
   transition: var(--transition);
   cursor: pointer;
+}
+.prev-btn:focus {
+  color: lightblue;
 }
 .prev-btn:hover,
 .next-btn:hover {
