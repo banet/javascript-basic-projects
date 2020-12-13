@@ -65,7 +65,7 @@ const randomBtn = document.querySelector('.random-btn')
 
 
 function showPerson(person) {
-  // Store i varaible irem and add properties
+  // Store i varaible item and add properties
   const item = reviews[person]
   authorImg.src=item.img
   author.textContent= item.name
