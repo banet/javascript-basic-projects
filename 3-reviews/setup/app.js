@@ -47,23 +47,53 @@ const authorJob = document.querySelector('#jobb')
 const authorInfo = document.querySelector('#info')
 
     // btn
-const btn = document.querySelector('.prev-btn')  
+const prevBtn = document.querySelector('.prev-btn')  
 const nextBtn = document.querySelector('.next-btn')  
 const randomBtn = document.querySelector('.random-btn')  
 
 // set startint item
     //as long as page is load you will get your first item which is imgae
-    let currentItem = 2
+    let currentItem = 0
 
     // Event listener DOMContentLoaded every time when you loaded
     window.addEventListener('DOMContentLoaded', function() {
       
-      // Store i varaible
-      const item = reviews[currentItem]
-      authorImg.src=item.img
-      author.textContent= item.name
-      authorJob.textContent= item.job
-      authorInfo.textContent= item.text
-      //console.log('shake baken')
+     showPerson(currentItem)
+
+      
     })
-// Function
+
+
+function showPerson(person) {
+  // Store i varaible irem and add properties
+  const item = reviews[person]
+  authorImg.src=item.img
+  author.textContent= item.name
+  authorJob.textContent= item.job
+  authorInfo.textContent= item.text
+  //console.log('shake baken')
+  
+}
+
+// Add eventLiastner
+// Show Prevperson
+prevBtn.addEventListener('click', function() {
+  currentItem++
+  if(currentItem > reviews.length -1) {
+    currentItem = 0;
+  }
+  showPerson(currentItem)
+} )
+nextBtn.addEventListener('click', function() {
+  currentItem--
+  if(currentItem < 0) {
+    currentItem = reviews.length -1
+  }
+  showPerson(currentItem)
+} )
+
+randomBtn.addEventListener('click', function() {
+  currentItem = Math.floor(Math.random()* reviews.length)
+
+  showPerson(currentItem)
+})
